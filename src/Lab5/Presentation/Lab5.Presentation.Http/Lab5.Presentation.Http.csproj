@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Application\Lab5.Application.Contracts\Lab5.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\Application\Lab5.Application\Lab5.Application.csproj" />
+        <ProjectReference Include="..\..\Domain\Lab5.Domain\Lab5.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

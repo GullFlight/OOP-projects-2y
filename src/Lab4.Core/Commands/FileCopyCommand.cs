@@ -1,0 +1,28 @@
+﻿namespace Itmo.ObjectOrientedProgramming.Lab4.Core.Commands;
+
+public class FileCopyCommand : ICommand
+{
+    private readonly string _sourcePath;
+    private readonly string _destinationPath;
+
+    public FileCopyCommand(string sourcePath, string destinationPath)
+    {
+        _sourcePath = sourcePath;
+        _destinationPath = destinationPath;
+    }
+
+    public ExecuteResult Execute(FileSystemContext fileSystemContext)
+    {
+        if (string.IsNullOrEmpty(_sourcePath))
+            return new ExecuteResult.Failure("Path is empty");
+
+        if (string.IsNullOrEmpty(_destinationPath))
+            return new ExecuteResult.Failure("Path is empty");
+
+        if (fileSystemContext.FileSystem == null)
+            return new ExecuteResult.Failure("FileSystem is not chosen");
+
+        fileSystemContext.FileSystem.Copy(_sourcePath, _destinationPath);
+        return new ExecuteResult.Success();
+    }
+}
